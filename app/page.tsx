@@ -18,12 +18,12 @@ const Home = ({ searchParams }: SearchParamProps) => {
             height={1000}
             width={1000}
             alt="patient"
-            className="mb-12 h-10 w-fit"
+            className="w-fit h-10 mb-12"
           />
 
           <PatientForm />
 
-          <div className="text-14-regular mt-20 flex justify-between">
+          <div className="text-14-regular flex justify-between mt-20">
             <p className="justify-items-end text-dark-600 xl:text-left">
               © 2024 CarePluse
             </p>

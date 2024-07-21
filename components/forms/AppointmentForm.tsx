@@ -151,13 +151,13 @@ export const AppointmentForm = ({
             >
               {Doctors.map((doctor, i) => (
                 <SelectItem key={doctor.name + i} value={doctor.name}>
-                  <div className="flex cursor-pointer items-center gap-2">
+                  <div className="flex items-center gap-2 cursor-pointer">
                     <Image
                       src={doctor.image}
                       width={32}
                       height={32}
                       alt="doctor"
-                      className="rounded-full border border-dark-500"
+                      className="border-dark-500 border rounded-full"
                     />
                     <p>{doctor.name}</p>
                   </div>

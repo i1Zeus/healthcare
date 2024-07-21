@@ -6,13 +6,19 @@ import { Doctors } from "@/constants";
 import { getAppointment } from "@/lib/actions/appointment.actions";
 import { formatDateTime } from "@/lib/utils";
 
+import { getUser } from "@/lib/actions/patient.actions";
+
+import * as Sentry from "@sentry/nextjs";
+
 const RequestSuccess = async ({
   searchParams,
   params: { userId },
 }: SearchParamProps) => {
   const appointmentId = (searchParams?.appointmentId as string) || "";
   const appointment = await getAppointment(appointmentId);
+  const user = await getUser(userId);
 
+  Sentry.metrics.set("user_view_success", user.name);
   const doctor = Doctors.find(
     (doctor) => doctor.name === appointment.primaryPhysician
   );
@@ -26,7 +32,7 @@ const RequestSuccess = async ({
             height={1000}
             width={1000}
             alt="logo"
-            className="h-10 w-fit"
+            className="w-fit h-10"
           />
         </Link>
 

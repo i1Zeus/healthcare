@@ -5,6 +5,9 @@ import ReactDatePicker from "react-datepicker";
 import { Control } from "react-hook-form";
 import PhoneInput from "react-phone-number-input";
 
+import "react-datepicker/dist/react-datepicker.css";
+import "react-phone-number-input/style.css";
+
 import { Checkbox } from "./ui/checkbox";
 import {
   FormControl,
@@ -80,7 +83,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
       return (
         <FormControl>
           <PhoneInput
-            defaultCountry="US"
+            defaultCountry="IQ"
             placeholder={props.placeholder}
             international
             withCountryCallingCode

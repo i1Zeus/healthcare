@@ -101,7 +101,7 @@ export const PasskeyModal = () => {
           </InputOTP>
 
           {error && (
-            <p className="shad-error text-14-regular mt-4 flex justify-center">
+            <p className="shad-error text-14-regular flex justify-center mt-4">
               {error}
             </p>
           )}

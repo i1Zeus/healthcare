@@ -4,9 +4,13 @@ import { redirect } from "next/navigation";
 import RegisterForm from "@/components/forms/RegisterForm";
 import { getPatient, getUser } from "@/lib/actions/patient.actions";
 
+import * as Sentry from "@sentry/nextjs";
+
 const Register = async ({ params: { userId } }: SearchParamProps) => {
   const user = await getUser(userId);
   const patient = await getPatient(userId);
+
+  Sentry.metrics.set("user_view_register", user.name);
 
   if (patient) redirect(`/patients/${userId}/new-appointment`);
 
@@ -19,7 +23,7 @@ const Register = async ({ params: { userId } }: SearchParamProps) => {
             height={1000}
             width={1000}
             alt="patient"
-            className="mb-12 h-10 w-fit"
+            className="w-fit h-10 mb-12"
           />
 
           <RegisterForm user={user} />

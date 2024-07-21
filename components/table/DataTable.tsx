@@ -1,10 +1,10 @@
 "use client";
 
 import {
-  getPaginationRowModel,
   ColumnDef,
   flexRender,
   getCoreRowModel,
+  getPaginationRowModel,
   useReactTable,
 } from "@tanstack/react-table";
 import Image from "next/image";
